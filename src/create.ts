@@ -27,7 +27,7 @@ export class Create extends Command {
                 type: 'list',
                 name: 'assetType',
                 message: 'What would you like to create?',
-                choices: ['Purchase Orders', 'Finance Requests', 'Shipments', 'Go back']
+                choices: ['Purchase Orders', 'Finance Requests', 'Go back']
             },
         ]);
         switch (createAnswers.assetType.replace(' ', '')) {

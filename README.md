@@ -8,7 +8,7 @@ The Command Line Interface (CLI) for this POC is written in Node.js using Inquir
 EP_CLI_PORT=6000 npm start
 ```
 
-## Starting the App
+## Install
 
 Build the JavaScript from Typescript
 
@@ -22,12 +22,42 @@ Start the program
 EP_CLI_PORT=6000 npm start
 ```
 
-## Using the App
-
-The application allows you to sign in as a user representing an administrator at an Enrolling Party. The user that you log in with should match the organisation used by the REST server specified with `EP_CLI_PORT`.
+## Usage
 
 ```bash
-# Create a CLI for Copenhagen Banking, who's REST server is running on port 6003
+# Create a CLI for Amsterdam Bank, who's REST server is running on port 6000
 EP_CLI_PORT=6000 npm start
-
 ```
+
+Select which participant you want to be (Alice or Bob), ensuring that the Organization name is the same as that of the REST server at the port you have chosen.
+![Select Participant](docs/select-participant.png "Select a Participant")
+
+From here you can select `Create`, `Read` or `Other`
+
+> All hashes displayed in the UI are truncated
+
+### Create
+
+This allows you to create a `PurchaseOrder` or a `Finance Request`.
+
+![Create](docs/create.png "Create an asset")
+
+The output of creating the `Purchase Order` is the data available on the world state.
+
+### Read
+
+This allows you to view `PurchaseOrders` and `FinanceRequests` as they appear in in the organizations Private Data Collection (PDC).
+
+![Read](docs/read.png "Read an Asset")
+
+### Other
+
+> We will switch to to `bob@BankOfBrusselsEP` to manage the `PurchaseOrder` `alice@AmsterdamBankEP` just created
+
+This allows you to manage your `Purchase Orders` (accept or close from the perspective of Bob) and `Finance Requests`
+
+![Other](docs/other.png "Manage an Asset")
+
+### Help
+
+Contact [Liam Grace](mailto:liam.grace@ibm.com) or [Andrew Hurt](mailto:andrew.hurt@uk.ibm.com) if you have any issues

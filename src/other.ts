@@ -42,7 +42,9 @@ export class Other extends Command {
 
     private async managePurchaseOrder() {
         let purchaseOrders = await this.httpService.get('purchaseorders', {user: this.dataStore.auth});
-
+        if (!purchaseOrders) {
+            purchaseOrders = [];
+        }
         purchaseOrders = purchaseOrders.filter((po) => {
             return po.status === 'PENDING' && po.sellerId === this.dataStore.auth;
         });

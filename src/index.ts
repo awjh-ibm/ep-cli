@@ -53,7 +53,7 @@ async function route(dataStore, answers) {
 }
 
 async function login() {
-    const answers = await inquirer.prompt([
+    const answers: any = await inquirer.prompt([
         {
             type: 'list',
             name: 'username',

@@ -62,3 +62,4 @@ typings/
 
 bin
 dist
+**/.DS_store

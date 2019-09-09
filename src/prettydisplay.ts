@@ -10,10 +10,12 @@ export class PrettyDisplay extends Table {
             if (!Array.isArray(data)) {
                 data = [data];
             }
+            const colNames = PrettyDisplay.getHead(data);
             super({
-                head: PrettyDisplay.getHead(data)
+                head: colNames
             });
-            this.push(...this.cleanData(data));
+
+            this.push(...this.cleanData(data, colNames.indexOf('hash') !== -1));
         }
     }
 
@@ -21,7 +23,7 @@ export class PrettyDisplay extends Table {
         console.log(this.toString());
     }
 
-    private cleanData(data: {[key: string]: any}[]) {
+    private cleanData(data: {[key: string]: any}[], truncHash?: boolean) {
         for (const d of data) {
             for (const key in d) {
                 if (typeof key !== 'string') {
@@ -29,17 +31,22 @@ export class PrettyDisplay extends Table {
                 }
             }
         }
-        return PrettyDisplay.getValues(data);
+        return PrettyDisplay.getValues(data, truncHash);
     }
 
     private static getHead(data: {[key: string]: any}[]) {
         return Object.keys(data[0]);
     }
 
-    private static getValues(data: {[key: string]: any}[]) {
+    private static getValues(data: {[key: string]: any}[], truncHash?: boolean) {
         const dataArray: string[][] = [];
-        for (const d of data) {
-            const values = Object.keys(d).map(key => d[key]);
+        for (let d of data) {
+            const values = Object.keys(d).map(key => {
+                if (key === 'hash' && truncHash) {
+                    d[key] = d[key].substr(0, 10);
+                }
+                return d[key]
+            });
             dataArray.push(values);
         }
         return dataArray;

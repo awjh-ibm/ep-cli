@@ -55,9 +55,10 @@ async function route(dataStore, answers) {
 async function login() {
     const answers = await inquirer.prompt([
         {
-            type: 'input',
+            type: 'list',
             name: 'username',
             message: 'What is your username?',
+            choices: ['alice@AmsterdamBankEP', 'bob@BankOfBrusselsEP'],
             validate: (answer) => {
                 if (answer.split("@").length !== 2) {
                     return "Username must be of form <NAME>@<ORG>"

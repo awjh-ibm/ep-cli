@@ -22,7 +22,7 @@ export class Other extends Command {
                 type: 'list',
                 name: 'action',
                 message: 'What would you like to do?',
-                choices: ['Manage Purchase Order', 'Manage Finance Request', 'Manage Shipment', 'Go back']
+                choices: ['Manage Purchase Order', 'Manage Finance Request', 'Go back']
             }
         ]);
 
@@ -156,9 +156,11 @@ export class Other extends Command {
 
         switch (actionAnswers.action) {
             case 'Accept':
-                await this.httpService.put(`financerequests/${financeRequest.id}/accept`, {}, {user: this.dataStore.auth});
+                await this.httpService.put(`financerequests/${financeRequest.id}/accept`, {}, {user: this.dataStore.financierId});
+                break;
             case 'Withdraw':
-                await this.httpService.put(`financerequests/${financeRequest.id}/withdraw`, {}, {user: this.dataStore.auth});
+                await this.httpService.put(`financerequests/${financeRequest.id}/withdraw`, {}, {user: this.dataStore.financierId});
+                break;
         }
         return this.httpService.get(`financerequests/${financeRequest.id}`, {user: this.dataStore.auth});
     }

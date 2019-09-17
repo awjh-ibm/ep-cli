@@ -58,4 +58,4 @@ This allows you to manage your `Purchase Orders` (accept or close from the persp
 
 ### Help
 
-Contact [Liam Grace](mailto:liam.grace@ibm.com) or [Andrew Hurt](mailto:andrew.hurt1@uk.ibm.com) if you have any issues
+Contact [Liam Grace](mailto:liam.grace@ibm.com) or [Andrew Hurt](mailto:andrew.hurt1@ibm.com) if you have any issues

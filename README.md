@@ -23,13 +23,11 @@ EP_CLI_PORT=6000 npm start
 ```
 
 ## Usage
-
 ```bash
-# Create a CLI for Amsterdam Bank, who's REST server is running on port 6000
 EP_CLI_PORT=6000 npm start
 ```
 
-Select which participant you want to be (Alice or Bob), ensuring that the Organization name is the same as that of the REST server at the port you have chosen.
+Select which participant you want to be (Alice or Bob), ensuring that the organization name matches the organization of the REST server the instance is connected to.
 ![Select Participant](docs/select-participant.png "Select a Participant")
 
 From here you can select `Create`, `Read` or `Other`
